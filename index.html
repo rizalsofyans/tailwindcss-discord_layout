@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Discord</title>
+        <link rel="stylesheet" href="assets/index.css" />
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        fontFamily: {
+                            sans: [
+                                'Whitney',
+                                'Open Sans'
+                            ],
+                        },
+                        colors: {
+                            gray: {
+                                50: '#ECEDEE',
+                                100: '#DCDDDE',
+                                200: '#B9BBBE',
+                                300: '#8E9297',
+                                400: '#72767D',
+                                500: '#5C6067',
+                                600: '#464950',
+                                700: '#36393F',
+                                800: '#2F3136',
+                                900: '#202225',
+                            },
+                        },
+                    },
+                },
+            };
+        </script>
+    </head>
+    <body>
+        <div class="flex text-gray-100 h-screen">
+            <div
+                id="server"
+                class="bg-gray-900 p-3 space-y-2 overflow-y-scroll"
+            ></div>
+            <div class="bg-gray-800 w-60 flex flex-col">
+                <div class="p-3 h-12 flex items-center shadow-md">
+                    Tailwind CSS
+                </div>
+                <div
+                    id="channels"
+                    class="p-3 flex-1 overflow-y-scroll text-gray-300 space-y-2"
+                >
+                    <p class="text-white">Channel (Unread)</p>
+                    <p class="text-white">Channel (Unread)</p>
+                </div>
+            </div>
+            <div class="bg-gray-700 flex-1 flex flex-col">
+                <div class="p-3 shadow-md">General</div>
+                <div
+                    id="messages"
+                    class="p-3 flex-1 overflow-y-scroll space-y-4"
+                ></div>
+            </div>
+        </div>
+
+        <script type="text/javascript">
+            // Server
+            [...Array(40)].map((_, i) => {
+                document.getElementById(
+                    'server'
+                ).innerHTML += `<div class="bg-white text-gray-800 w-12 h-12 rounded-full flex items-center justify-center">${
+                    i + 1
+                }</div>`;
+            });
+
+            // Channels
+            [...Array(40)].map((_, i) => {
+                document.getElementById(
+                    'channels'
+                ).innerHTML += `<div>Channels ${i + 1}</div>`;
+            });
+
+            // Messages
+            [...Array(40)].map((_, i) => {
+                document.getElementById(
+                    'messages'
+                ).innerHTML += `<div>Messages ${
+                    i + 1
+                }. Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates vitae ad excepturi provident deserunt similique velit sed, consectetur perspiciatis aliquid ex. Fugit, quaerat sed blanditiis deleniti tempore minus provident aperiam modi officiis, aut dolorem ad explicabo ex, in deserunt magni architecto error repudiandae neque ratione perspiciatis assumenda! Quasi, qui hic!</div>`;
+            });
+        </script>
+    </body>
+</html>
