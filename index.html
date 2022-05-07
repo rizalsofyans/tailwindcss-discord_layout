@@ -12,12 +12,10 @@
                 theme: {
                     extend: {
                         fontFamily: {
-                            sans: [
-                                'Whitney',
-                                'Open Sans'
-                            ],
+                            sans: ['Whitney', 'Open Sans'],
                         },
                         colors: {
+                            brand: '#5865F2',
                             gray: {
                                 50: '#ECEDEE',
                                 100: '#DCDDDE',
@@ -41,14 +39,48 @@
             <div
                 id="server"
                 class="bg-gray-900 p-3 space-y-2 overflow-y-scroll"
-            ></div>
+            >
+                <a class="relative block group">
+                    <div class="absolute flex items-center h-full -left-3">
+                        <div
+                            id="lines"
+                            class="w-1 h-5 transition-all duration-300 bg-white rounded-r opacity-0 group-hover:opacity-100 scale-0 group-hover:scale-100 origin-left"
+                        ></div>
+                    </div>
+                    <div
+                        id="home"
+                        class="flex items-center justify-center w-12 h-12 text-gray-800 bg-gray-700 rounded-3xl group-hover:rounded-2xl group-hover:bg-brand transition-all duration-300 ease-in-out"
+                    >
+                        <img
+                            src="assets/images/Discord-Logo-White.svg"
+                            alt=""
+                            srcset=""
+                            class="h-5 w-7"
+                        />
+                    </div>
+                </a>
+                <a class="relative block group">
+                    <div class="absolute flex items-center h-full -left-3">
+                        <div
+                            id="lines"
+                            class="w-1 h-5 transition-all duration-300 bg-white rounded-r opacity-0 group-hover:opacity-100 scale-0 group-hover:scale-100 origin-left"
+                        ></div>
+                    </div>
+                    <div
+                        id="home"
+                        class="flex items-center justify-center w-12 h-12 text-gray-800 bg-gray-700 rounded-3xl group-hover:rounded-2xl group-hover:bg-brand transition-all duration-300 ease-in-out text-white"
+                    >
+                        SV
+                    </div>
+                </a>
+            </div>
             <div class="bg-gray-800 w-60 flex flex-col">
                 <div class="p-3 h-12 flex items-center shadow-md">
                     Tailwind CSS
                 </div>
                 <div
                     id="channels"
-                    class="p-3 flex-1 overflow-y-scroll text-gray-300 space-y-2"
+                    class="p-3 flex-1 overflow-y-scroll text-gray-300 space-y-2 font-medium"
                 >
                     <p class="text-white">Channel (Unread)</p>
                     <p class="text-white">Channel (Unread)</p>
@@ -65,13 +97,13 @@
 
         <script type="text/javascript">
             // Server
-            [...Array(40)].map((_, i) => {
-                document.getElementById(
-                    'server'
-                ).innerHTML += `<div class="bg-white text-gray-800 w-12 h-12 rounded-full flex items-center justify-center">${
-                    i + 1
-                }</div>`;
-            });
+            // [...Array(40)].map((_, i) => {
+            //     document.getElementById(
+            //         'server'
+            //     ).innerHTML += `<div id="server-list" class="bg-white text-gray-800 w-12 h-12 rounded-full flex items-center justify-center">${
+            //         i + 1
+            //     }</div>`;
+            // });
 
             // Channels
             [...Array(40)].map((_, i) => {
@@ -88,6 +120,23 @@
                     i + 1
                 }. Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates vitae ad excepturi provident deserunt similique velit sed, consectetur perspiciatis aliquid ex. Fugit, quaerat sed blanditiis deleniti tempore minus provident aperiam modi officiis, aut dolorem ad explicabo ex, in deserunt magni architecto error repudiandae neque ratione perspiciatis assumenda! Quasi, qui hic!</div>`;
             });
+
+            const home = document.querySelector('#home');
+            const lines = document.querySelector('#lines');
+            const serverList = document.querySelector('#server-list');
+
+            if (window.location.pathname === '/index.html') {
+                home.classList.add('rounded-2xl', 'bg-brand');
+                lines.classList.remove(
+                    'h-5',
+                    'opacity-0',
+                    'scale-0',
+                    'group-hover:opacity-100',
+                    'scale-0',
+                    'group-hover:scale-100'
+                );
+                lines.classList.add('h-10', 'opacity-100');
+            }
         </script>
     </body>
 </html>
